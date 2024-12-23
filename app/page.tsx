@@ -33,12 +33,12 @@ export default function Home() {
         </h2>
       </div>
 
-      <div>
+      {/* <div>
         <p>
           you can see more of my work on twitter and github. my full resume is
           here, i'm also (very rarely) on linkedin.
         </p>
-      </div>
+      </div> */}
     </div>
   );
 }
