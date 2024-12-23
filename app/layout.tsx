@@ -31,7 +31,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <main className="mx-auto max-w-screen-md p-5">{children}</main>
+        <main className="mx-auto max-w-screen-sm px-5 py-12">{children}</main>
       </body>
     </html>
   );
