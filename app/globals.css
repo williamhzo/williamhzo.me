@@ -1,33 +1,37 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted-background: var(--muted-background);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono); /* FIXME: doesn't work */
 }
 
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
+  .debug {
+    border: 1px solid red;
   }
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fffaf4;
+  --foreground: #1d1b4b;
+  --muted-foreground: #9494bf;
+  --accent: #5345f7;
+  /* --muted-background: #c5c4f7; */
+  --muted-background: #f4eff0;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
   }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
+  font-family: var(--font-sans);
 }
