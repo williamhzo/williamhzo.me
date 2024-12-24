@@ -6,7 +6,7 @@ import { ReactNode, ElementType } from "react";
 export default function Home() {
   return (
     <div className="flex flex-col gap-12">
-      <div>
+      <div className="flex flex-col gap-16">
         <div className="relative flex items-center justify-between">
           <div className="flex items-baseline gap-2">
             <h1 className="font-semibold select-none">hey, i'm william</h1>
@@ -24,7 +24,7 @@ export default function Home() {
 
         <h2 className="font-mono text-balance">
           a paris-based <span className="font-semibold">product engineer</span>{" "}
-          with a keen eye for design, i craft high impact{" "}
+          with a keen eye for design, crafting high impact{" "}
           <span className="font-semibold">user-focused products</span>.
           currently building{" "}
           <InlineLink href="https://shape.network">shape</InlineLink> &{" "}
@@ -33,12 +33,26 @@ export default function Home() {
         </h2>
       </div>
 
-      {/* <div>
+      <div>
+        <h3 className="mb-5 font-semibold">writing</h3>
+        <p>lorem ipsum</p>
+      </div>
+
+      <div>
+        <h3 className="mb-5 font-semibold">more</h3>
         <p>
-          you can see more of my work on twitter and github. my full resume is
-          here, i'm also (very rarely) on linkedin.
+          my full resume is{" "}
+          <InlineLink href="https://read.cv/wh">here</InlineLink>, you can see
+          more of my work on{" "}
+          <InlineLink href="https://github.com/williamhzo">github</InlineLink>{" "}
+          and <InlineLink href="https://x.com/williamhzo">x</InlineLink>{" "}
+          (twitter). i'm also (very rarely) on{" "}
+          <InlineLink href="https://www.linkedin.com/in/williamhermozo/">
+            linkedin
+          </InlineLink>
+          .
         </p>
-      </div> */}
+      </div>
     </div>
   );
 }

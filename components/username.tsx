@@ -8,7 +8,7 @@ export const Username = () => {
 
   return (
     <button
-      className="group text-muted-foreground/45 flex cursor-pointer items-center gap-1"
+      className="group text-muted-foreground/50 flex cursor-pointer items-center gap-1"
       onClick={() => copy("williamhzo")}
     >
       — @williamhzo
