@@ -1,6 +1,6 @@
 "use client";
 
-import { useCopyToClipboard } from "@/useCopyToClipboard";
+import { useCopyToClipboard } from "@/hooks";
 import { Clipboard, Check } from "lucide-react";
 
 export const Username = () => {
