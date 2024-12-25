@@ -6,8 +6,10 @@
   --color-accent: var(--accent);
   --color-muted-foreground: var(--muted-foreground);
   --color-muted-background: var(--muted-background);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono); /* FIXME: doesn't work */
+  /* --font-family-sans: var(--font-geist-sans);
+  --font-family-mono: var(--font-geist-mono);
+  --font-family-serif: var(--font-cormorant-garamond);
+  --font-serif: var(--font-cormorant-garamond); */
 }
 
 @layer base {
