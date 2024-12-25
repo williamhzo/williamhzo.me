@@ -12,12 +12,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// const ibmPlexSerif = IBM_Plex_Serif({
-//   variable: "--font-ibm-plex-serif",
-//   subsets: ["latin"],
-//   weight: ["400"],
-// });
-
 const cormorantGaramond = Cormorant_Garamond({
   variable: "--font-cormorant-garamond",
   subsets: ["latin"],
