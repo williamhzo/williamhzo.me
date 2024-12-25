@@ -6,9 +6,9 @@
   --color-accent: var(--accent);
   --color-muted-foreground: var(--muted-foreground);
   --color-muted-background: var(--muted-background);
-  /* --font-family-sans: var(--font-geist-sans);
-  --font-family-mono: var(--font-geist-mono);
-  --font-family-serif: var(--font-cormorant-garamond);
+
+  /* --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
   --font-serif: var(--font-cormorant-garamond); */
 }
 
@@ -18,19 +18,31 @@
   }
 }
 
+@layer utilities {
+  /* FIXME: @theme should work here instead of redefining utilities */
+  .font-sans {
+    font-family: var(--font-geist-sans);
+  }
+  .font-mono {
+    font-family: var(--font-geist-mono);
+  }
+  .font-serif {
+    font-family: var(--font-cormorant-garamond);
+  }
+}
+
 :root {
   --background: #fffaf4;
   --foreground: #1d1b4b;
   --muted-foreground: #9494bf;
   --accent: #5345f7;
-  /* --muted-background: #c5c4f7; */
   --muted-background: #f4eff0;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
   }
-}
+} */
 
 body {
   color: var(--foreground);

@@ -6,7 +6,7 @@ import { ReactNode, ElementType } from "react";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-12 font-mono">
+    <div className="mx-auto flex max-w-screen-sm flex-col gap-12 px-5 font-mono">
       <div className="flex flex-col gap-16">
         <div>
           <div className="relative flex items-center justify-between">
@@ -73,7 +73,7 @@ const InlineLink = ({
   children: ReactNode;
 }) => {
   return (
-    <Link href={href} className="font-semibold">
+    <Link href={href} className="font-semibold underline hover:no-underline">
       {children}
     </Link>
   );
