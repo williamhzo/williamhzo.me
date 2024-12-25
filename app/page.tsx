@@ -6,18 +6,18 @@ import { ReactNode, ElementType } from "react";
 
 export default function Home() {
   return (
-    <div className="mx-auto flex max-w-screen-sm flex-col gap-12 px-5 font-mono">
+    <div className="mx-auto flex max-w-screen-md flex-col gap-12 px-5 font-mono">
       <div className="flex flex-col gap-16">
         <div>
           <div className="relative flex items-center justify-between">
             <div className="flex items-baseline gap-2">
-              <h1 className="font-sans font-semibold select-none">
+              <h1 className="mb-4 font-serif text-7xl select-none">
                 hey, i&apos;m william
               </h1>
               <Username />
             </div>
 
-            <ul className="absolute right-0 flex items-center gap-0.5">
+            <ul className="flex items-center gap-0.5">
               <SocialLink href={paths.x} icon={XIcon} />
               <SocialLink href={paths.github} icon={GithubIcon} />
             </ul>
@@ -36,7 +36,7 @@ export default function Home() {
       </div>
 
       <div>
-        <h3 className="mb-4 font-sans font-semibold">playground</h3>
+        <h3 className="mb-4 font-serif text-7xl">playground</h3>
         <div>lorem ipsum</div>
         <div>lorem ipsum</div>
         <div>lorem ipsum</div>
@@ -44,14 +44,14 @@ export default function Home() {
       </div>
 
       <div>
-        <h3 className="mb-4 font-sans font-semibold">writing</h3>
+        <h3 className="mb-4 font-serif text-7xl">writing</h3>
         <div>lorem ipsum</div>
         <div>lorem ipsum</div>
         <div>lorem ipsum</div>
       </div>
 
       <div>
-        <h3 className="mb-4 font-sans font-semibold">more</h3>
+        <h3 className="mb-4 font-serif text-7xl">more</h3>
         <p>
           my full resume is <InlineLink href={paths.cv}>here</InlineLink>, you
           can see more of my work on{" "}
