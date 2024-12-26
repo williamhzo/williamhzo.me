@@ -19,7 +19,7 @@ const cormorantGaramond = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "William — Product Engineer",
+  title: "william — product engineer",
   description:
     "User-focused Product Engineer with a keen eye for design, crafting high impact products.",
   icons:
@@ -36,7 +36,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${cormorantGaramond.variable} relative antialiased`}
       >
-        <main className="bg-background relative z-10 min-h-screen py-24">
+        <main className="bg-background relative z-10 min-h-screen pb-24">
           {children}
         </main>
 
