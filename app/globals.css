@@ -48,4 +48,9 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: var(--font-sans);
+
+  & em {
+    font-style: normal;
+    font-weight: 600;
+  }
 }

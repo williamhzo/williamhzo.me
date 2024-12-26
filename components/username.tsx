@@ -8,11 +8,11 @@ export const Username = () => {
 
   return (
     <button
-      className="group text-muted-foreground/50 hidden cursor-pointer items-center gap-1 2xl:flex"
+      className="group text-muted-foreground/75 relative cursor-pointer items-center gap-1"
       onClick={() => copy("williamhzo")}
     >
       — @williamhzo
-      <span className="-translate-x-2 opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100">
+      <span className="absolute top-1/2 right-0 -translate-y-1/2 opacity-0 transition-all duration-200 group-hover:translate-x-4 group-hover:opacity-100">
         {copiedText ? (
           <Check className="size-3" />
         ) : (
