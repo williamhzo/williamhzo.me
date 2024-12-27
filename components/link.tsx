@@ -1,4 +1,4 @@
-import { cn } from "@/utils";
+import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 import NextLink from "next/link";
 import { LinkProps as NextLinkProps } from "next/link";
@@ -24,5 +24,22 @@ export const Link = ({ href, children, className }: LinkProps) => {
     <NextLink href={href} className={cn(className)}>
       {children}
     </NextLink>
+  );
+};
+
+export const InlineLink = ({
+  href,
+  children,
+}: {
+  href: string;
+  children: ReactNode;
+}) => {
+  return (
+    <Link
+      href={href}
+      className="font-semibold text-black underline hover:no-underline"
+    >
+      {children}
+    </Link>
   );
 };

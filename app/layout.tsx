@@ -32,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-black">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${cormorantGaramond.variable} relative antialiased`}
       >
@@ -40,7 +40,7 @@ export default function RootLayout({
           {children}
         </main>
 
-        <footer className="sticky bottom-0 z-0 flex h-32 items-end justify-start overflow-y-hidden">
+        <footer className="sticky bottom-0 z-0 flex h-32 items-end justify-start overflow-y-hidden bg-black text-white">
           <span className="-mb-6 font-serif text-9xl select-none">
             williamhzo
           </span>

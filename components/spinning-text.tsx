@@ -1,7 +1,7 @@
 "use client";
 
-import { cn } from "@/utils";
-import { motion, Transition, Variants } from "motion/react";
+import { cn } from "@/lib/utils";
+import { motion } from "motion/react";
 import React, { CSSProperties } from "react";
 
 type SpinningTextProps = {
