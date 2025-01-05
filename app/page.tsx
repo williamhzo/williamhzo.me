@@ -1,15 +1,41 @@
 import { InlineLink } from "@/components/link";
 import { paths } from "@/constants";
 import { Hero } from "@/components/hero";
+import { SpinningText } from "@/components/spinning-text";
 
 export default function Home() {
   return (
     <div className="mx-auto flex max-w-screen-lg flex-col gap-12 px-6 pt-24 font-mono">
-      <Hero />
+      <div className="mx-auto flex w-full max-w-screen-xl flex-col gap-4">
+        <div className="group -mt-8 flex items-center justify-end gap-32">
+          <SpinningText
+            className="-mt-4 font-mono text-sm uppercase opacity-0 transition-opacity duration-750 group-hover:opacity-100"
+            radius={5.5}
+            duration={15}
+          >
+            {`web3 • engineering • design • craft • `}
+          </SpinningText>
 
-      <div className="mx-auto max-w-screen-md">
+          <Hero />
+        </div>
+
+        <div className="group mt-12 flex max-w-prose flex-col gap-0 text-balance">
+          <h2>
+            a paris-based <em>product engineer</em> with a keen eye for design,
+            crafting high impact <em>user-focused products</em>.
+          </h2>
+
+          <p className="mt-6">
+            currently building <InlineLink href={paths.shape}>shape</InlineLink>{" "}
+            & <InlineLink href={paths.deca}>deca</InlineLink>, and{" "}
+            <em>having a blast</em>.
+          </p>
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-8">
         <div>
-          <h3 className="mb-4 font-sans text-7xl font-light tracking-tight">
+          <h3 className="mb-4 font-sans font-semibold text-black">
             playground
           </h3>
           <div>lorem ipsum</div>
@@ -19,19 +45,15 @@ export default function Home() {
         </div>
 
         <div>
-          <h3 className="mb-4 font-sans text-7xl font-light tracking-tight">
-            writing
-          </h3>
+          <h3 className="mb-4 font-sans font-semibold text-black">writing</h3>
           <div>lorem ipsum</div>
           <div>lorem ipsum</div>
           <div>lorem ipsum</div>
         </div>
 
         <div>
-          <h3 className="mb-4 font-sans text-7xl font-light tracking-tight">
-            more
-          </h3>
-          <p>
+          <h3 className="mb-4 font-sans font-semibold text-black">more</h3>
+          <p className="max-w-prose text-pretty">
             my full resume is <InlineLink href={paths.cv}>here</InlineLink>, you
             can see more of my work on{" "}
             <InlineLink href={paths.github}>github</InlineLink> and{" "}
