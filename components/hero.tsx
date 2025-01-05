@@ -27,8 +27,8 @@ export const Hero: FC = () => {
 
         <div className="flex flex-col items-end">
           <motion.h1
-            className="text-right font-sans text-5xl font-semibold tracking-tight text-black select-none"
-            initial={{ y: 15, opacity: 0 }}
+            className="text-right font-sans text-4xl font-semibold tracking-tight text-black select-none"
+            initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{
               y: { duration: 0.3 },
@@ -43,7 +43,7 @@ export const Hero: FC = () => {
             className="text-muted-foreground/75 items-end"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
+            transition={{ duration: 0.2, delay: 0.15 }}
           >
             — @williamhzo
           </motion.span>
@@ -52,7 +52,7 @@ export const Hero: FC = () => {
             className="flex items-center gap-1"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
+            transition={{ duration: 0.2, delay: 0.15 }}
           >
             <SocialLink href={paths.x} icon={XIcon} />
             <SocialLink href={paths.github} icon={GithubIcon} />
@@ -62,12 +62,9 @@ export const Hero: FC = () => {
 
       <motion.div
         className="group mt-12"
-        initial={{ opacity: 0, y: 5 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          y: { duration: 0.4 },
-          opacity: { duration: 0.5 },
-        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.2, delay: 0.15 }}
       >
         <div className="flex max-w-prose flex-col gap-0 text-balance">
           <h2>
