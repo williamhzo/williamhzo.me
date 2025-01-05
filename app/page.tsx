@@ -35,20 +35,10 @@ export default function Home() {
 
       <div className="flex flex-col gap-8">
         <div>
-          <h3 className="mb-4 font-sans font-semibold text-black">
-            playground
-          </h3>
-          <div>lorem ipsum</div>
-          <div>lorem ipsum</div>
-          <div>lorem ipsum</div>
-          <div>lorem ipsum</div>
-        </div>
-
-        <div>
           <h3 className="mb-4 font-sans font-semibold text-black">writing</h3>
-          <div>lorem ipsum</div>
-          <div>lorem ipsum</div>
-          <div>lorem ipsum</div>
+          <div>letting go of &quot;pixel perfect&quot;</div>
+          <div>unlocking the &quot;blog paralysis&quot;</div>
+          <div>writin on the web</div>
         </div>
 
         <div>
