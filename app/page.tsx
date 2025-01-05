@@ -4,7 +4,7 @@ import { Hero } from "@/components/hero";
 
 export default function Home() {
   return (
-    <div className="mx-auto flex flex-col gap-12 px-6 pt-24 font-mono">
+    <div className="mx-auto flex max-w-screen-lg flex-col gap-12 px-6 pt-24 font-mono">
       <Hero />
 
       <div className="mx-auto max-w-screen-md">

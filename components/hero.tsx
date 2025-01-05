@@ -16,49 +16,52 @@ export const Hero: FC = () => {
 
   return (
     <div className="mx-auto flex min-h-[100dvh] w-full max-w-screen-xl flex-col gap-4">
-      <div className="flex flex-col items-end">
-        <motion.h1
-          className="text-right font-sans text-8xl font-semibold tracking-tight text-black select-none"
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{
-            y: { duration: 0.3 },
-            opacity: { duration: 0.5 },
-          }}
+      <div className="group -mt-8 flex items-center justify-end gap-32">
+        <SpinningText
+          className="-mt-4 font-mono text-sm uppercase opacity-0 transition-opacity duration-750 group-hover:opacity-100"
+          radius={5.5}
+          duration={15}
         >
-          hey, <br />
-          i&apos;m william
-        </motion.h1>
+          {`web3 • engineering • design • craft • `}
+        </SpinningText>
 
-        <motion.div
-          className="-mt-1.5 flex flex-col items-end"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <button
-            className="group text-muted-foreground/75 relative cursor-pointer items-center gap-1"
-            onClick={() => copy("williamhzo")}
+        <div className="flex flex-col items-end">
+          <motion.h1
+            className="text-right font-sans text-5xl font-semibold tracking-tight text-black select-none"
+            initial={{ y: 15, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              y: { duration: 0.3 },
+              opacity: { duration: 0.5 },
+            }}
+          >
+            hey, <br />
+            i&apos;m william
+          </motion.h1>
+
+          <motion.span
+            className="text-muted-foreground/75 items-end"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
           >
             — @williamhzo
-            <span className="absolute top-1/2 right-0 -translate-y-1/2 opacity-0 transition-all duration-200 group-hover:translate-x-4 group-hover:opacity-100">
-              {copiedText ? (
-                <Check className="size-3" />
-              ) : (
-                <Clipboard className="size-3" />
-              )}
-            </span>
-          </button>
+          </motion.span>
 
-          <ul className="mt-1 flex items-center gap-1">
+          <motion.ul
+            className="flex items-center gap-1"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+          >
             <SocialLink href={paths.x} icon={XIcon} />
             <SocialLink href={paths.github} icon={GithubIcon} />
-          </ul>
-        </motion.div>
+          </motion.ul>
+        </div>
       </div>
 
       <motion.div
-        className="group mt-12 flex items-center justify-between"
+        className="group mt-12"
         initial={{ opacity: 0, y: 5 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -66,7 +69,7 @@ export const Hero: FC = () => {
           opacity: { duration: 0.5 },
         }}
       >
-        <div className="flex max-w-prose flex-col gap-0 text-2xl text-balance">
+        <div className="flex max-w-prose flex-col gap-0 text-balance">
           <h2>
             a paris-based <em>product engineer</em> with a keen eye for design,
             crafting high impact <em>user-focused products</em>.
@@ -78,15 +81,6 @@ export const Hero: FC = () => {
             <em>having a blast</em>.
           </p>
         </div>
-
-        <SpinningText
-          className="mr-14 font-mono uppercase opacity-0 transition-opacity duration-750 group-hover:opacity-100"
-          radius={5}
-          duration={15}
-        >
-          {/* {`love • create • share • expand • connect • `} */}
-          {`le regard fixé sur un daruma • `}
-        </SpinningText>
       </motion.div>
     </div>
   );

@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
-import React, { CSSProperties } from "react";
+import { CSSProperties } from "react";
 
 type SpinningTextProps = {
   children: string;
@@ -42,11 +42,11 @@ export function SpinningText({
               "--index": index,
               "--total": totalLetters,
               "--radius": radius,
-              fontSize: "1rem",
+              fontSize: "0.75rem",
               transform: `
             translate(-50%, -50%)
             rotate(calc(360deg / var(--total) * var(--index)))
-            translateY(calc(var(--radius, 5) * -1ch))
+            translateY(calc(var(--radius, 5) * -1.1ch))
             `,
               transformOrigin: "center",
             } as CSSProperties
