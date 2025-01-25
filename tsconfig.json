@@ -27,7 +27,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "next.config.mjs"
+    "next.config.mjs",
+    "app/mdx-page/page.mdx"
   ],
   "exclude": ["node_modules"]
 }
