@@ -1,3 +1,3 @@
 export default function MdxLayout({ children }: { children: React.ReactNode }) {
-  return <div className="prose mx-auto">{children}</div>;
+  return <section className="prose mx-auto pt-24">{children}</section>;
 }

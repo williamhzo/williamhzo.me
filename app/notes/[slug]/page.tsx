@@ -4,9 +4,22 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const slug = (await params).slug;
-  const { default: Post } = await import(`@/content/${slug}.mdx`);
+  const { default: Post, metadata } = await import(`@/content/${slug}.mdx`);
 
-  return <Post />;
+  const dateObj = new Date(metadata.publishedDate);
+  const formattedDate = dateObj.toLocaleDateString("us-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+  return (
+    <div>
+      <h1>{metadata.title}</h1>
+      <small>{formattedDate}</small>
+      <Post />
+    </div>
+  );
 }
 
 export function generateStaticParams() {
