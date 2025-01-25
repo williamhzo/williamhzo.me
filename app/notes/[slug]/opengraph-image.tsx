@@ -1,3 +1,4 @@
+// import { POSTS } from "@/lib/blog";
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
@@ -10,21 +11,9 @@ export const size = {
 
 export const contentType = "image/png";
 
-const POSTS = [
-  {
-    title: 'Letting go of "pixel perfect"',
-    slug: "letting-go-of-pixel-perfect",
-  },
-  {
-    title: 'Unlocking the "blog paralysis"',
-    slug: "unlocking-the-blog-paralysis",
-  },
-  { title: "Writing on the web", slug: "writing-on-the-web" },
-];
-
-export default async function Image({ params }: { params: { slug: string } }) {
-  const post = POSTS.find((post) => post.slug === params.slug);
-
+// export default async function Image({ params }: { params: { slug: string } }) {
+// const post = POSTS.find((post) => post.slug === params.slug);
+export default async function Image() {
   const geistSemiBold = await readFile(
     join(process.cwd(), "assets/Geist-SemiBold.ttf"),
   );
@@ -49,6 +38,15 @@ export default async function Image({ params }: { params: { slug: string } }) {
           <div style={{ fontSize: 32, color: "#697282", fontWeight: 600 }}>
             williamhzo.me
           </div>
+          <div style={{ fontSize: 40 }}>
+            product engineer, builder & learner
+          </div>
+        </div>
+        {/* FIXME: post metadata in og image */}
+        {/* <div style={{ display: "flex", flexDirection: "column" }}>
+          <div style={{ fontSize: 32, color: "#697282", fontWeight: 600 }}>
+            williamhzo.me
+          </div>
           {post && <div style={{ fontSize: 40 }}>{post.title}</div>}
         </div>
 
@@ -56,7 +54,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
           <div style={{ fontSize: 32 }}>
             product engineer, builder & learner
           </div>
-        </div>
+        </div> */}
       </div>
     ),
     {
