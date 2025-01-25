@@ -15,8 +15,11 @@ export default async function Page({
 
   return (
     <div>
-      <h1>{metadata.title}</h1>
-      <small>{formattedDate}</small>
+      <div className="mb-12 flex flex-col">
+        <h1>{metadata.title}</h1>
+        <p>{metadata.description}</p>
+        <small className="italic">{formattedDate}</small>
+      </div>
       <Post />
     </div>
   );
