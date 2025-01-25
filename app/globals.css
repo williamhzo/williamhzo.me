@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --font-*: initial;
+  /* FIXME */
+  /* --font-*: initial;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-serif: var(--font-cormorant-garamond);
+  --font-serif: var(--font-cormorant-garamond); */
 
   --color-background: var(--color-white);
   --color-foreground: var(--color-gray-600);
@@ -20,16 +21,28 @@
 }
 
 @layer utilities {
+  .font-sans {
+    font-family: var(--font-geist-sans);
+  }
+
+  .font-mono {
+    font-family: var(--font-geist-mono);
+  }
+
+  .font-serif {
+    font-family: var(--font-cormorant-garamond);
+  }
 }
 
 :root {
-  color: var(--color-foreground);
-  background: var(--color-background);
-  /* font-family: var(--font-sans);  */
-
   & em {
     font-style: normal;
     font-weight: 600;
     color: var(--color-black);
   }
+}
+
+body {
+  color: var(--color-foreground);
+  background: var(--color-background);
 }
