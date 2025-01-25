@@ -11,13 +11,8 @@ export const size = {
 
 export const contentType = "image/png";
 
-export default async function Image({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const slug = (await params).slug;
-  const metadata = await getBlogPostMetadata(slug);
+export default async function Image({ params }: { params: { slug: string } }) {
+  const metadata = await getBlogPostMetadata(params.slug);
 
   const geistSemiBold = await readFile(
     join(process.cwd(), "assets/Geist-SemiBold.ttf"),
