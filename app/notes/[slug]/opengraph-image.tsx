@@ -42,7 +42,7 @@ export default async function Image({
           <div style={{ fontSize: 32, color: "#697282", fontWeight: 600 }}>
             williamhzo.me
           </div>
-          <div style={{ fontSize: 40 }}>{metadata.title}</div>
+          {/* <div style={{ fontSize: 40 }}>{metadata.title}</div> */}
         </div>
 
         <div style={{ color: "#697282", display: "flex", gap: 12 }}>
