@@ -1,5 +1,6 @@
 export const paths = {
   // internal
+  notes: (slug: string) => `/notes/${slug}`,
 
   // external
   x: "https://x.com/williamhzo",
