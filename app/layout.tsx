@@ -22,7 +22,7 @@ const cormorantGaramond = Cormorant_Garamond({
 export const metadata: Metadata = {
   title: "william — product engineer",
   description:
-    "User-focused Product Engineer with a keen eye for design, crafting high impact products.",
+    "Passionate & user-focused Product Engineer with a keen eye for design, crafting high impact products.",
   icons:
     "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐡</text></svg>",
 };
