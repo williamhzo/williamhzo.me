@@ -44,10 +44,11 @@ export default function Home() {
         <div>
           <h3 className="mb-4 font-sans font-semibold text-black">more</h3>
           <p className="max-w-prose text-pretty">
-            my full resume is <InlineLink href={paths.cv}>here</InlineLink>, you
-            can see more of my work on{" "}
-            <InlineLink href={paths.github}>github</InlineLink> and{" "}
-            <InlineLink href={paths.x}>x (twitter)</InlineLink>. i&apos;m also
+            you can reach me on{" "}
+            <InlineLink href={paths.x}>x (twitter)</InlineLink>. my full resume
+            is <InlineLink href={paths.cv}>here</InlineLink> and you can see
+            more of my work on{" "}
+            <InlineLink href={paths.github}>github</InlineLink>. i&apos;m also
             (very rarely) on{" "}
             <InlineLink href={paths.linkedin}>linkedin</InlineLink>.
           </p>
