@@ -30,14 +30,19 @@ export const Link = ({ href, children, className }: LinkProps) => {
 export const InlineLink = ({
   href,
   children,
+  className,
 }: {
   href: string;
   children: ReactNode;
+  className?: string;
 }) => {
   return (
     <Link
       href={href}
-      className="text-accent font-semibold underline hover:no-underline"
+      className={cn(
+        "text-accent font-semibold underline hover:no-underline",
+        className,
+      )}
     >
       {children}
     </Link>

@@ -66,14 +66,26 @@ export default async function Home() {
 
       <div>
         <h3 className="text-accent mb-4 font-sans font-semibold">more</h3>
-        <p className="max-w-prose text-pretty">
-          you can reach me on{" "}
-          <InlineLink href={paths.x}>x (twitter)</InlineLink>. my full resume is{" "}
-          <InlineLink href={paths.cv}>here</InlineLink> and you can see more of
-          my work on <InlineLink href={paths.github}>github</InlineLink>.
-          i&apos;m also (very rarely) on{" "}
-          <InlineLink href={paths.linkedin}>linkedin</InlineLink>.
-        </p>
+        <div className="flex flex-col gap-6">
+          <p className="max-w-prose text-pretty">
+            you can reach me on{" "}
+            <InlineLink href={paths.x}>x (twitter)</InlineLink>. my full resume
+            is <InlineLink href={paths.cv}>here</InlineLink> and you can see
+            more of my work on{" "}
+            <InlineLink href={paths.github}>github</InlineLink>. i&apos;m also
+            (very rarely) on{" "}
+            <InlineLink href={paths.linkedin}>linkedin</InlineLink>.
+          </p>
+
+          <p>
+            <InlineLink
+              href={paths.repo}
+              className="text-muted-foreground font-normal"
+            >
+              source code
+            </InlineLink>
+          </p>
+        </div>
       </div>
     </div>
   );
