@@ -34,20 +34,19 @@ export default async function Image({
           alignItems: "flex-start",
           justifyContent: "space-between",
           backgroundColor: "#fff",
-          fontSize: 32,
           fontWeight: 600,
-          padding: 64,
+          padding: 72,
         }}
       >
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 20, color: "#697282", fontWeight: 600 }}>
+          <div style={{ fontSize: 32, color: "#697282", fontWeight: 600 }}>
             williamhzo.me
           </div>
-          <div style={{ fontSize: 32 }}>{metadata.title}</div>
+          <div style={{ fontSize: 40 }}>{metadata.title}</div>
         </div>
 
         <div style={{ color: "#697282", display: "flex", gap: 12 }}>
-          <div style={{ fontSize: 20 }}>
+          <div style={{ fontSize: 32 }}>
             product engineer, builder & learner
           </div>
         </div>
