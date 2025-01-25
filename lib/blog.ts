@@ -16,6 +16,11 @@ export async function getBlogPosts(): Promise<Metadata[]> {
   return postsMetadata;
 }
 
+export async function getBlogPostMetadata(slug: string): Promise<Metadata> {
+  const { metadata } = await import(`@/content/${slug}.mdx`);
+  return metadata;
+}
+
 export const POSTS = [
   {
     title: 'Letting go of "pixel perfect"',
