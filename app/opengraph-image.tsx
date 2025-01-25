@@ -28,6 +28,7 @@ export default async function Image() {
           backgroundColor: "#fff",
           fontWeight: 600,
           padding: 72,
+          fontFamily: "Geist",
         }}
       >
         <div style={{ display: "flex", flexDirection: "column" }}>
@@ -47,7 +48,7 @@ export default async function Image() {
           name: "Geist",
           data: geistSemiBold,
           style: "normal",
-          weight: 400,
+          weight: 600,
         },
       ],
     },
