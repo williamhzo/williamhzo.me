@@ -1,4 +1,19 @@
+import { getBlogPostMetadata } from "@/lib/blog";
+import { Metadata } from "next";
 import Link from "next/link";
+
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const slug = (await params).slug;
+  const post = await getBlogPostMetadata(slug);
+
+  return {
+    title: `${post.title} — william`,
+  };
+}
 
 export default function MdxLayout({ children }: { children: React.ReactNode }) {
   return (
