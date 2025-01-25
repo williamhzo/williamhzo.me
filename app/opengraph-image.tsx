@@ -1,3 +1,4 @@
+import { getBlogPostMetadata } from "@/lib/blog";
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
@@ -10,7 +11,14 @@ export const size = {
 
 export const contentType = "image/png";
 
-export default async function Image() {
+export default async function Image({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const slug = (await params).slug;
+  const metadata = slug ? await getBlogPostMetadata(slug) : null;
+
   const geistSemiBold = await readFile(
     join(process.cwd(), "assets/Geist-SemiBold.ttf"),
   );
@@ -36,9 +44,17 @@ export default async function Image() {
             williamhzo.me
           </div>
           <div style={{ fontSize: 40 }}>
-            product engineer, builder & learner
+            {metadata ? metadata.title : "product engineer, builder & learner"}
           </div>
         </div>
+
+        {metadata && (
+          <div style={{ color: "#697282", display: "flex", gap: 12 }}>
+            <div style={{ fontSize: 32 }}>
+              product engineer, builder & learner
+            </div>
+          </div>
+        )}
       </div>
     ),
     {
