@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Cormorant_Garamond } from "next/font/google";
+import { Footer } from "@/components/footer";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -40,11 +41,7 @@ export default function RootLayout({
           {children}
         </main>
 
-        <footer className="sticky bottom-0 z-0 flex h-32 items-end justify-start overflow-y-hidden bg-black text-white">
-          <span className="-mb-6 font-serif text-9xl select-none">
-            williamhzo
-          </span>
-        </footer>
+        <Footer />
       </body>
     </html>
   );
