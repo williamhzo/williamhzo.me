@@ -10,7 +10,7 @@
 
   --color-background: var(--color-white);
   --color-foreground: var(--color-gray-600);
-  --color-accent: var(--color-blue-500);
+  --color-accent: var(--color-black);
   --color-muted-foreground: var(--color-gray-400);
   --color-muted-background: var(--color-gray-100);
 }
@@ -36,7 +36,7 @@
 }
 
 :root {
-  & em {
+  & strong {
     font-style: normal;
     font-weight: 600;
     color: var(--color-black);

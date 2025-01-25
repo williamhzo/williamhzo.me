@@ -37,7 +37,7 @@ export const InlineLink = ({
   return (
     <Link
       href={href}
-      className="font-semibold text-black underline hover:no-underline"
+      className="text-accent font-semibold underline hover:no-underline"
     >
       {children}
     </Link>
