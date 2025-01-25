@@ -1,0 +1,100 @@
+---
+title: 'Letting go of "pixel-perfect"'
+publishedDate: 2023-01-20
+description: 'On building dynamic web experiences from static designs.'
+slug: 'letting-go-of-pixel-perfect'
+canonicalUrl: 'https://williamhzo.me/notes/letting-go-of-pixel-perfect'
+publish: true
+---
+
+Behind this catchy headline lies a mental shift I’ve observed at some point, which changed how I see static design assets (like [Sketch](oversights) or [Figma](https://www.figma.com/) wireframes), and therefore how I write CSS and build User Interfaces.
+
+Building for the web today means that we ship websites that work for everyone, regardless of the end user’s device: a shiny new MacBook Pro, a 5K display, a smartwatch, or even the [screen of a fridge](https://www.samsung.com/us/explore/family-hub-refrigerator/overview/).
+
+---
+
+<small>_Building for everyone also means shipping experiences that are great regardless of the end user's disabilities and network connection, but that's another topic._</small>
+
+---
+
+## The illusion of the source of truth
+
+Wireframes are often seen as the unique, irrefutable _source of truth_. In that sense spacings, font sizes, line heights, widths, and heights (to name a few) would need to be a perfect 1:1 match between design assets and production code.
+
+This is often flagged as "pixel-perfect" development: when given a "final" design (i.e. approved by stakeholders), the developer's job would only be to implement it following the exact same pixel values in the wireframes.
+
+This coupled with the fact that some teams work in a traditional linear way regarding a project's lifecycle, something along the lines of:
+
+1. research
+2. sketches/prototypes/low-fidelity wireframes
+3. iteration
+4. high-fidelity wireframes
+5. integration/development
+
+This means developers (or engineers, depending on the team) are invited very late to the party, and therefore most of the project's lifecycle is done within the design tools (steps 1 to 4).
+
+---
+
+<small>_Their input is therefore limited, and crucial aspects of the design will have most probably been left off and overseen: accessibility issues, inconsistent content structure, complex and/or heavy interactions, missing states for elements (focused, hovered, in error, etc.), the list can go on forever. But that's also a whole other topic, I plan to write about it soon._</small>
+
+---
+
+All this contributes to the fact that design assets are considered a specification and a unique source of truth, meaning that deviation from these specs is considered harmful and not desirable.
+
+## But... design assets are static
+
+Most designs are done on a canvas with fixed height and width, which means that [responsiveness](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design) is simulated by multiplying the design on several canvases with different heights and widths.
+
+For example, design files will contain a canvas for a mobile viewport (screen size), one for a tablet, and another one for a desktop.
+
+These values are often arbitrary and tend to represent the average device size, such as, for example:
+
+- mobile: 375 x 629px (iPhone 12)
+- tablet: 584 x 806px (Galaxy Tab S7+)
+- desktop: 1280 x 800px (average laptop)
+
+But what happens for all the devices with screen sizes in-between or out of the limits above?
+
+As mentioned by Andy Bell's [buildexcellentwebsit.es](https://buildexcellentwebsit.es/), there are _thousands of different devices_ out there in the wild, each and every one with its unique viewport. We have no clue on which screen size our website will be viewed.
+
+## The illusion of control
+
+The traditional way of dealing with this is adding [`width` media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/width) in our CSS on the breakpoints provided by the design. In that way, we ensure that for every device size provided in the wireframes, the design is the same.
+
+We managed to control exactly when to wrap this sidebar, or these navigation menu items, the exact way that they were thought by the designer.
+
+But it feels clunky.
+
+Of course, our users will likely not resize browser windows to test responsiveness, but media query breakpoints rarely solve (nor detect) visual bugs and inconsistencies in the UI: large horizontal spacing right after wrapping an element, or some decreased `font-size` for a mobile phone screen that feels too small for a tablet.
+
+## Letting go of pixel-perfect
+
+The end user doesn't care if the production code reflects 1:1 the sizes provided in the design assets. The end user cares about _optimal_, _consistent_, and _intuitive_ experiences.
+
+CSS is awesome. Our browsers are very capable nowadays and are very good at interpolating values with the right input.
+
+The solution to this lies in accepting not controlling every absolute pixel value but providing hints to the browser by defining a fluid scale and layout on which to rely.
+
+Instead of defining breakpoints on which to change the layout, we let the `flex` or `grid` algorithms do it for us, according to our input and the content they hold.
+
+Some amazing tools and methodologies exist nowadays to achieve this. I'll briefly talk about 2 of my favorite in the next sections.
+
+### Solving the fluid layout issue
+
+Enter [Every Layout](https://every-layout.dev/). This is a goldmine of pure CSS utilities to build fluid robust layouts, _without any media queries_.
+
+As the name states, (almost) all the basic layouts are covered and are easily configurable with CSS variables. It's not a library nor a framework, just good old plain CSS to drop in our project.
+
+### Solving the fluid spacing and font sizes
+
+One of the key discoveries from [buildexcellentwebsit.es](https://buildexcellentwebsit.es/) is the amazing tool [Utopia](https://utopia.fyi/).
+
+Utopia allows you to generate CSS variables on fluid scales. You provide a target `font-size` for the smallest and largest viewports along with a [type scale](https://type-scale.com/), and it will generate for you all the intermediate sizes, thanks to the powerful [`clamp()`](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp) CSS function.
+
+## Wrapping up
+
+I don't consider media queries as a code smell per se, but in the name of control and absolute loyalty to design wireframes, we overuse them.
+
+They're a perfect example of trying to imperatively style every element in the UI, whereas CSS is designed to be declarative — Jeremy Keith puts it way better than I do in his [dedicated blog post](https://adactio.com/journal/18982).
+
+Quick note after re-reading this post: the reasons above are the very same reasons why Tailwind doesn't really click for me, imperative vs declarative.
