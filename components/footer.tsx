@@ -9,7 +9,7 @@ import { FC } from "react";
 
 export const Footer: FC = () => {
   return (
-    <footer className="sticky bottom-0 z-0 flex h-20 items-end justify-start overflow-y-hidden bg-black pb-0 text-white">
+    <footer className="sticky bottom-0 z-0 flex h-20 items-end justify-start overflow-y-hidden bg-black pb-0.5 text-white">
       <Marquee gap={96} duration={25} durationOnHover={0}>
         <XLink />
         <EmailLink />
@@ -43,7 +43,7 @@ const EmailLink: FC = () => {
       email:{" "}
       <button
         onClick={() => copy("hi@williamhzo.me")}
-        className="group grid place-items-center"
+        className="group grid cursor-pointer place-items-center"
       >
         <span
           className={cn(

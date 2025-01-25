@@ -9,7 +9,7 @@ export default async function Home() {
   const posts = await getBlogPosts();
 
   return (
-    <div className="mx-auto flex max-w-screen-lg flex-col gap-12 px-6 pt-24 font-mono">
+    <div className="mx-auto flex max-w-screen-md flex-col gap-12 px-6 pt-24 font-mono">
       <div className="mx-auto flex w-full max-w-screen-xl flex-col gap-4">
         <div className="group -mt-8 flex items-center justify-end gap-32">
           <SpinningText
@@ -23,16 +23,21 @@ export default async function Home() {
           <Hero />
         </div>
 
-        <div className="group mt-12 flex max-w-prose flex-col gap-0 text-balance">
-          <h2>
+        <div className="group mt-12 flex max-w-prose flex-col gap-6">
+          <h2 className="text-balance">
             a paris-based <strong>product engineer</strong> with a keen eye for
             design, crafting high impact <strong>user-focused products</strong>.
           </h2>
 
-          <p className="mt-6">
+          <p className="text-balance">
             currently building <InlineLink href={paths.shape}>shape</InlineLink>{" "}
             & <InlineLink href={paths.deca}>deca</InlineLink>, and{" "}
             <strong>having a blast</strong>.
+          </p>
+
+          <p>
+            always open to chat about evm, design, digital objects, community,
+            product dev, building for humans & more
           </p>
         </div>
       </div>
