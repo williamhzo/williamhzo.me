@@ -38,7 +38,7 @@ export default async function Home() {
       </div>
 
       <div>
-        <h3 className="text-accent mb-4 font-sans font-semibold">writing</h3>
+        <h3 className="text-accent mb-4 font-sans font-semibold">riting</h3>
 
         <ul className="flex flex-col gap-6">
           {posts.map((post) => (
