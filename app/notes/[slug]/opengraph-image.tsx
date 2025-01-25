@@ -1,4 +1,3 @@
-import { POSTS } from "@/lib/blog";
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
@@ -10,6 +9,18 @@ export const size = {
 };
 
 export const contentType = "image/png";
+
+const POSTS = [
+  {
+    title: 'Letting go of "pixel perfect"',
+    slug: "letting-go-of-pixel-perfect",
+  },
+  {
+    title: 'Unlocking the "blog paralysis"',
+    slug: "unlocking-the-blog-paralysis",
+  },
+  { title: "Writing on the web", slug: "writing-on-the-web" },
+];
 
 export default async function Image({ params }: { params: { slug: string } }) {
   const post = POSTS.find((post) => post.slug === params.slug);
