@@ -20,7 +20,7 @@ const cormorantGaramond = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "william — product engineer",
+  title: "william",
   description:
     "Passionate & user-focused Product Engineer with a keen eye for design, crafting high impact products.",
   icons:
