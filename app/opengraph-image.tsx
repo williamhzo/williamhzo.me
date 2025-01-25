@@ -16,7 +16,7 @@ export default async function Image({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const slug = (await params).slug;
+  const slug = params ? (await params).slug : null;
   const metadata = slug ? await getBlogPostMetadata(slug) : null;
 
   const geistSemiBold = await readFile(
