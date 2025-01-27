@@ -37,7 +37,7 @@ export default async function Home() {
 
           <p>
             always open to chat about evm, design, digital objects, community,
-            product dev, building for humans & more
+            product dev, building for humans & more.
           </p>
         </div>
       </div>
