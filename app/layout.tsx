@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Cormorant_Garamond } from "next/font/google";
 import { Footer } from "@/components/footer";
@@ -40,8 +41,8 @@ export default function RootLayout({
         <main className="bg-background relative z-10 min-h-screen pb-24">
           {children}
         </main>
-
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
