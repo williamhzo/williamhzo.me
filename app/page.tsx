@@ -72,9 +72,7 @@ export default async function Home() {
             <InlineLink href={paths.x}>x (twitter)</InlineLink>. my full resume
             is <InlineLink href={paths.cv}>here</InlineLink> and you can see
             more of my work on{" "}
-            <InlineLink href={paths.github}>github</InlineLink>. i&apos;m also
-            (very rarely) on{" "}
-            <InlineLink href={paths.linkedin}>linkedin</InlineLink>.
+            <InlineLink href={paths.github}>github</InlineLink>.
           </p>
 
           <p>
