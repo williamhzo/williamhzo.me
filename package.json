@@ -15,12 +15,12 @@
     "@tailwindcss/postcss": "^4.1.16",
     "@types/mdx": "^2.0.13",
     "@vercel/analytics": "^1.4.1",
-    "lucide-react": "^0.469.0",
-    "motion": "^11.15.0",
+    "lucide-react": "^0.548.0",
+    "motion": "^12.23.24",
     "next": "16.0.0",
     "react": "19.2.0",
     "react-dom": "19.2.0",
-    "react-use-measure": "^2.1.1"
+    "react-use-measure": "^2.1.7"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",
