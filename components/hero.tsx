@@ -21,7 +21,10 @@ export const Hero: FC = () => {
         }}
       >
         hey, <br />
-        i&apos;m william
+        i&apos;m{" "}
+        <a href={paths.x} target="_blank" rel="noreferrer">
+          william
+        </a>
       </motion.h1>
 
       <motion.span
