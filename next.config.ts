@@ -1,19 +1,16 @@
 // @ts-check
 import createMDX from "@next/mdx";
-import remarkFrontmatter from "remark-frontmatter";
-import remarkGfm from "remark-gfm";
 
 /**
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
   pageExtensions: ["md", "mdx", "ts", "tsx"],
+  experimental: {
+    mdxRs: true,
+  },
 };
 
-const withMDX = createMDX({
-  options: {
-    remarkPlugins: [remarkGfm, remarkFrontmatter],
-  },
-});
+const withMDX = createMDX();
 
 export default withMDX(nextConfig);

@@ -10,15 +10,19 @@ export type Metadata = {
 export async function getBlogPosts(): Promise<Metadata[]> {
   const postsMetadata: Metadata[] = [];
   for (const post of POSTS) {
-    const { metadata } = await import(`@/content/${post.slug}.mdx`);
-    postsMetadata.push(metadata);
+    try {
+      const module = await import(`../content/${post.slug}.mdx`);
+      postsMetadata.push(module.metadata);
+    } catch (error) {
+      console.error(`Failed to import ${post.slug}.mdx:`, error);
+    }
   }
   return postsMetadata;
 }
 
 export async function getBlogPostMetadata(slug: string): Promise<Metadata> {
-  const { metadata } = await import(`@/content/${slug}.mdx`);
-  return metadata;
+  const module = await import(`../content/${slug}.mdx`);
+  return module.metadata;
 }
 
 export const POSTS = [
