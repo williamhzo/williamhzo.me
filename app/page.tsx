@@ -9,8 +9,8 @@ export default async function Home() {
   const posts = await getBlogPosts();
 
   return (
-    <div className="mx-auto flex max-w-screen-md flex-col gap-12 px-6 pt-24 font-mono">
-      <div className="mx-auto flex w-full max-w-screen-xl flex-col gap-4">
+    <div className="mx-auto flex max-w-(--breakpoint-md) flex-col gap-12 px-6 pt-24 font-mono">
+      <div className="mx-auto flex w-full max-w-(--breakpoint-xl) flex-col gap-4">
         <div className="group -mt-8 flex items-center justify-end gap-32">
           <SpinningText
             className="-mt-4 font-mono text-sm uppercase opacity-0 transition-opacity duration-750 group-hover:opacity-100"
