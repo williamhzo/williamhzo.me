@@ -27,6 +27,10 @@ export async function getBlogPostMetadata(slug: string): Promise<Metadata> {
 
 export const POSTS = [
   {
+    title: "Getting started building on Shape",
+    slug: "building-on-shape",
+  },
+  {
     title: 'Letting go of "pixel perfect"',
     slug: "letting-go-of-pixel-perfect",
   },

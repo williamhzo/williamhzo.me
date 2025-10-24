@@ -11,14 +11,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getBlogPostMetadata(slug);
 
   return {
-    title: `${post.title} — william`,
+    title: post.title,
     description: post.description,
   };
 }
 
 export default function MdxLayout({ children }: { children: React.ReactNode }) {
   return (
-    <section className="prose mx-auto flex flex-col items-start gap-6 p-5 pt-24 font-sans">
+    <section className="prose mx-auto flex flex-col items-start gap-6 p-5 pt-24 font-mono">
       <Link
         href="/"
         className="text-muted-foreground hover:text-accent font-mono font-normal no-underline transition-colors duration-150"

@@ -1,0 +1,195 @@
+export const metadata = {
+  title: "Building on Shape",
+  publishedDate: "2025-07-16",
+  description: "On how to get started building on Shape.",
+  slug: "building-on-shape",
+  canonicalUrl: "https://williamhzo.me/notes/building-on-shape",
+  publish: true,
+};
+
+<em>
+  This post was originally published on [Shape's
+  blog](https://shape.network/blog/building-on-shape).
+</em>
+
+## Introduction
+
+Imagine building apps & onchain experiments where you as a creator get rewarded directly when users interact with your smart contracts: that's Shape in a nutshell.
+
+Shape is a culture-first L2 that's home for art, crazy experiments, onchain games, you name it. It is neutral land, with an ever-growing community of creators, artists, builders, collectors and tinkerers.
+
+This is a quick walkthrough to get you up and running building on Shape, from your dApp frontend to smart contracts deployment.
+
+## Why Build on Shape?
+
+- **Gasback**: Earn back 80% of network fees as a creator: perfect for rewarding user engagement. [More about Gasback](https://docs.shape.network/gasback).
+- **Powering the new NFT economy**: NFTs that live on Shape are composable, interoperable, and alive. Shape is neutral land for NFTs: it's a community-owned protocol built by and for decentralization maxis. More [here](https://shape.network/why).
+- **Security and Scalability**: Inherits Ethereum's security while offering faster, cheaper transactions via [the Superchain](https://www.superchain.eco/).
+- **EVM-Compatible**: Drop in your favorite Ethereum tools: no weird tweaks needed.
+- **Home for creators**: Low fees make it easy to experiment with NFTs, games, or whatever wild idea you have.
+- **Active community**: Get your first users, some support & feedback in [Shape's Discord](https://discord.com/invite/shape-l2). Our Shapers community is composed of genuine NFT lovers: artists, collectors, builders & tinkerers, not short-sighted farmers.
+
+## Prerequisites
+
+- Assume: Basic **TypeScript**, **React** and **Git** knowledge (if not, feel free to give your fav LLM a call).
+- For smart contracts: Familiarity with **Solidity** (we'll keep it simple; if completely new, check out [ethereum.org/smart-contracts](https://ethereum.org/en/smart-contracts/)).
+- Tools needed:
+  - Accounts: [Alchemy](https://www.alchemy.com) has a great set of tools to cover most needs (NFT API, Smart Wallet, etc.) and [WalletConnect](https://cloud.walletconnect.com/) for multi-wallet support, with great DX.
+  - Your current IDE of choice: **Cursor**, **VSCode**, **Windsurf**, **Notepad.exe**, etc.
+- **Time estimate**: 5-25 minutes depending on how fast you read and copy-paste stuff.
+
+---
+
+<em>
+  The apps frontend (Nextjs + WAGMI) sends JSON-RPC requests to the RPC provider
+  (Alchemy), which forwards them to the Shape L2 network and then relays the
+  responses back to your app.
+</em>
+
+---
+
+## Cloning and Running the [Builder Kit](https://github.com/shape-network/builder-kit)
+
+We've made this starter template to help builders get up and running in no time: [github.com/shape-network/builder-kit](https://github.com/shape-network/builder-kit). It's an opinionated repository based on React, Next.js & Wagmi.
+
+1. **Clone the repo**: `git clone https://github.com/shape-network/builder-kit.git`
+2. **Install deps**: `cd builder-kit && yarn install`
+3. **Get your API keys/IDs**: [Alchemy API key](https://www.alchemy.com/docs/reference/api-overview) (for connecting to Shape's blockchain data) and your [WalletConnect project ID](https://cloud.walletconnect.com/) (for wallet integrations).
+4. **Env setup**: Copy `.env.example` to `.env.local`, fill in your Alchemy key and WalletConnect ID. Set chain to Shape Sepolia Testnet (e.g., `NEXT_PUBLIC_CHAIN_ID=11011` for safe experimenting).
+5. **Run locally**: `yarn dev`; open http://localhost:3000 on your browser.
+
+---
+
+<em>
+  Use Shape's testnet (Sepolia, Chain ID `11011`) for all experiments; it's free
+  and safer to play around before hitting mainnet (Chain ID `360`). By the way,
+  you can find all chain-related network information [in Shape
+  docs](https://docs.shape.network/technical-details/network-information).
+</em>
+
+---
+
+You'll have an app ready with wallet connect, balance checks, and Shape network support. Experiment on testnet first – tweak the UI, connect a wallet, and see live data. You can also add some onchain interactions (read/write).
+
+If you need to write onchain or deploy a contract you'll need Shape Sepolia ETH, you can get some on the [Optimism Superchain Faucet](https://console.optimism.io/faucet) or check out [Alchemy](https://www.alchemy.com/faucets/shape-sepolia)'s.
+
+## Building Your First Frontend Feature
+
+Add a toggle to switch between Shape testnet and mainnet – great for testing environments. Shape chains are pre-added in the Builder Kit config. If you start from scratch, add them to `wagmiConfig` first.
+
+Add the following `network-toggle.tsx` component to `app/page.tsx`:
+
+```tsx
+"use client";
+
+import { useSwitchNetwork, useChainId } from "wagmi";
+import { Button } from "@/components/ui/button";
+
+function NetworkToggle() {
+  const chainId = useChainId();
+  const { switchNetwork } = useSwitchNetwork();
+
+  const isTestnet = chainId === 11011;
+  const targetChainId = isTestnet ? 360 : 11011;
+
+  return (
+    <Button onClick={() => switchNetwork?.(targetChainId)}>
+      Switch to {isTestnet ? "Mainnet" : "Testnet"}
+    </Button>
+  );
+}
+```
+
+## Deploying Your First Smart Contract
+
+You can use either Hardhat (JavaScript-based, great for beginners and integration) or Foundry (Rust-based, faster for testing). We'll use Hardhat here as it aligns well with the JavaScript stack in the Builder Kit.
+
+For secure contracts, start with OpenZeppelin templates; they're audited and battle-tested, especially for NFTs (e.g., ERC721).
+
+### Setup Hardhat Project
+
+1. Create a new folder: `mkdir shape-contract && cd shape-contract`
+2. Init: `yarn init -y` && `yarn add --dev hardhat @nomicfoundation/hardhat-toolbox`
+3. Run init: `npx hardhat init` (choose `Create a TypeScript project`)
+4. Add Shape network to `hardhat.config.ts`:
+
+```ts
+networks: {
+  shapeTestnet: {
+    url: "https://sepolia.shape.network",
+    chainId: 11011,
+    accounts: [process.env.PRIVATE_KEY]
+  },
+  shapeMainnet: {
+    url: "https://mainnet.shape.network",
+    chainId: 360,
+    accounts: [process.env.PRIVATE_KEY]
+  }
+}
+```
+
+### Basic Example: Greeting Contract
+
+In `contracts/Greeting.sol`:
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+contract Greeting {
+    string public greet = "Hello Shape!";
+}
+```
+
+Deploy script in `scripts/deploy.ts`:
+
+```ts
+import { ethers } from "hardhat";
+
+async function main() {
+  const Greeting = await ethers.getContractFactory("Greeting");
+  const greeting = await Greeting.deploy();
+  await greeting.waitForDeployment();
+  console.log(`Deployed to: ${await greeting.getAddress()}`);
+}
+
+main().catch(console.error);
+```
+
+Run: `npx hardhat run scripts/deploy.ts --network shapeTestnet`
+
+### NFT Example with OpenZeppelin
+
+Install: `yarn add @openzeppelin/contracts`
+
+In `contracts/MyNFT.sol`:
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract MyNFT is ERC721, Ownable {
+    uint256 private _tokenIdCounter;
+
+    constructor(address initialOwner) ERC721("MyNFT", "MNFT") Ownable(initialOwner) {}
+
+    function mint(address to) external onlyOwner {
+        _safeMint(to, _tokenIdCounter);
+        _tokenIdCounter++;
+    }
+}
+```
+
+Update deploy script accordingly.
+
+Nice! Now you can check your deployed contract on [Shape Sepolia Explorer](https://sepolia.shapescan.xyz/)
+
+## Resources and Next Steps
+
+- [Shape Docs](https://docs.shape.network)
+- [Builder Kit Demo](https://github.com/shape-network/builder-kit)
+- [OpenZeppelin Docs](https://docs.openzeppelin.com/contracts/5.x/)
+- Questions? DM or ping me on Twitter/𝕏 [@williamhzo](https://x.com/williamhzo)
