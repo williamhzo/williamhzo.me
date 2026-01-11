@@ -39,22 +39,9 @@ export default async function Image() {
             williamhzo.me
           </div>
           <div style={{ fontSize: 40 }}>
-            product engineer, builder & learner
+            product engineer, ai builder & learner
           </div>
         </div>
-        {/* FIXME: post metadata in og image */}
-        {/* <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 32, color: "#697282", fontWeight: 600 }}>
-            williamhzo.me
-          </div>
-          {post && <div style={{ fontSize: 40 }}>{post.title}</div>}
-        </div>
-
-        <div style={{ color: "#697282", display: "flex", gap: 12 }}>
-          <div style={{ fontSize: 32 }}>
-            product engineer, builder & learner
-          </div>
-        </div> */}
       </div>
     ),
     {

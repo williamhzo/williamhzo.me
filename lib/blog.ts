@@ -7,12 +7,19 @@ export type Metadata = {
   publish: boolean;
 };
 
+export const POSTS = [
+  { title: "Building on Shape", slug: "shape" },
+  { title: 'Letting go of "pixel perfect"', slug: "pixel-perfect" },
+  { title: 'Unlocking the "blog paralysis"', slug: "blog-paralysis" },
+  { title: "Writing on the web", slug: "writing" },
+];
+
 export async function getBlogPosts(): Promise<Metadata[]> {
   const postsMetadata: Metadata[] = [];
   for (const post of POSTS) {
     try {
       const module = await import(`../content/${post.slug}.mdx`);
-      postsMetadata.push(module.metadata);
+      postsMetadata.push({ ...module.metadata, slug: post.slug });
     } catch (error) {
       console.error(`Failed to import ${post.slug}.mdx:`, error);
     }
@@ -22,21 +29,5 @@ export async function getBlogPosts(): Promise<Metadata[]> {
 
 export async function getBlogPostMetadata(slug: string): Promise<Metadata> {
   const module = await import(`../content/${slug}.mdx`);
-  return module.metadata;
+  return { ...module.metadata, slug };
 }
-
-export const POSTS = [
-  {
-    title: "Getting started building on Shape",
-    slug: "building-on-shape",
-  },
-  {
-    title: 'Letting go of "pixel perfect"',
-    slug: "letting-go-of-pixel-perfect",
-  },
-  {
-    title: 'Unlocking the "blog paralysis"',
-    slug: "unlocking-the-blog-paralysis",
-  },
-  { title: "Writing on the web", slug: "writing-on-the-web" },
-];

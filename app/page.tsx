@@ -49,7 +49,7 @@ export default async function Home() {
           {posts.map((post) => (
             <li key={post.slug}>
               <Link
-                href={paths.notes(post.slug)}
+                href={paths.post(post.slug)}
                 className="group flex flex-col items-start gap-0"
               >
                 <span className="group-hover:text-foreground text-accent font-semibold transition-colors duration-150">

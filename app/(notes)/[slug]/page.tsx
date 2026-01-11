@@ -1,3 +1,5 @@
+import { POSTS } from "@/lib/blog";
+
 export default async function Page({
   params,
 }: {
@@ -26,12 +28,7 @@ export default async function Page({
 }
 
 export function generateStaticParams() {
-  return [
-    { slug: "building-on-shape" },
-    { slug: "writing-on-the-web" },
-    { slug: "unlocking-the-blog-paralysis" },
-    { slug: "letting-go-of-pixel-perfect" },
-  ];
+  return POSTS.map((post) => ({ slug: post.slug }));
 }
 
 export const dynamicParams = false;

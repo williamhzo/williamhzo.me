@@ -1,3 +1,7 @@
+## General
+
+- This project uses `bun` (not `npm`, not `yarn`)
+
 ## TypeScript
 
 - Only create an abstraction if it’s actually needed
