@@ -1,4 +1,3 @@
-// import { POSTS } from "@/lib/blog";
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
@@ -11,8 +10,6 @@ export const size = {
 
 export const contentType = "image/png";
 
-// export default async function Image({ params }: { params: { slug: string } }) {
-// const post = POSTS.find((post) => post.slug === params.slug);
 export default async function Image() {
   const geistSemiBold = await readFile(
     join(process.cwd(), "assets/Geist-SemiBold.ttf"),
