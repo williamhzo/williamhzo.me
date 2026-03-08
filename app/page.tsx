@@ -11,7 +11,7 @@ export default async function Home() {
   const posts = await getBlogPosts();
 
   return (
-    <div className="mx-auto flex max-w-(--breakpoint-md) flex-col gap-12 px-6 pt-24 font-mono">
+    <div className="mx-auto flex max-w-(--breakpoint-md) flex-col gap-12 px-6 pt-24">
       <div className="mx-auto flex w-full max-w-(--breakpoint-xl) flex-col gap-4">
         <div className="group -mt-8 flex items-center justify-start gap-32">
           <Hero />
@@ -25,7 +25,7 @@ export default async function Home() {
           </SpinningText>
         </div>
 
-        <HomeSection title="today" className="mt-12 max-w-prose">
+        <HomeSection title="Today" className="mt-12 max-w-prose">
           <h2 className="text-balance">
             Paris-based <strong>product engineer</strong> with a keen eye for
             design, crafting high impact <strong>user-focused products</strong>.
@@ -38,38 +38,43 @@ export default async function Home() {
           </p>
 
           <p>
-            always open to chat about the evm, design, digital objects,
-            community, product, motorcycles, building for humans & more.
+            Always open to chat about the EVM, design, digital objects,
+            community, product, motorcycles, building & more.
           </p>
         </HomeSection>
       </div>
 
-      <HomeSection title="writing">
+      <HomeSection title="Writing">
         <ul className="flex flex-col gap-6">
           {posts.map((post) => (
-            <li key={post.slug}>
-              <Link
-                href={paths.post(post.slug)}
-                className="group flex flex-col items-start gap-0"
-              >
-                <span className="group-hover:text-foreground text-accent font-semibold transition-colors duration-150">
-                  {post.title}
-                </span>
-                <span className="text-muted-foreground">
-                  {post.description.replace(/\.$/, "")}
-                </span>
-              </Link>
-            </li>
+            <ListItem
+              key={post.slug}
+              url={paths.post(post.slug)}
+              title={post.title}
+              description={post.description}
+            />
           ))}
         </ul>
       </HomeSection>
 
-      <HomeSection title="more" contentClassName="max-w-prose">
+      <HomeSection title="Projects">
+        <ul className="flex flex-col gap-6">
+          {projects.map((project) => (
+            <ListItem
+              key={project.title}
+              url={project.url}
+              title={project.title}
+              description={project.description}
+            />
+          ))}
+        </ul>
+      </HomeSection>
+
+      <HomeSection title="More" contentClassName="max-w-prose">
         <p className="text-pretty">
-          you can reach me on{" "}
-          <InlineLink href={paths.x}>x (twitter)</InlineLink>. my full resume is{" "}
-          <InlineLink href={paths.cv}>here</InlineLink> and you can see more of
-          my work on <InlineLink href={paths.github}>github</InlineLink>.
+          You can reach me on <InlineLink href={paths.x}>Twitter/X</InlineLink>{" "}
+          and see more of my work on{" "}
+          <InlineLink href={paths.github}>GitHub</InlineLink>.
         </p>
 
         <p>
@@ -77,7 +82,7 @@ export default async function Home() {
             href={paths.repo}
             className="text-muted-foreground font-normal"
           >
-            source code
+            Source code
           </InlineLink>
         </p>
       </HomeSection>
@@ -98,10 +103,58 @@ function HomeSection({
 }) {
   return (
     <section className={cn("flex flex-col gap-4", className)}>
-      <h3 className="text-accent font-sans font-semibold">{title}</h3>
+      <h3 className="text-accent font-sans font-medium">{title}</h3>
       <div className={cn("flex flex-col gap-6", contentClassName)}>
         {children}
       </div>
     </section>
   );
 }
+
+const ListItem = ({
+  title,
+  url,
+  description,
+}: {
+  title: string;
+  url: string;
+  description: string;
+}) => {
+  const isExternal = url.startsWith("https");
+  const Component = isExternal ? "a" : Link;
+  return (
+    <li>
+      <Component
+        href={url}
+        target={isExternal ? "_blank" : undefined}
+        rel={isExternal ? "noreferrer" : undefined}
+        className="group flex flex-col items-start gap-0"
+      >
+        <span className="group-hover:text-accent text-foreground font-medium transition-colors duration-150">
+          {title}
+        </span>
+        <span className="text-muted-foreground transition-colors duration-150">
+          {description}
+        </span>
+      </Component>
+    </li>
+  );
+};
+
+const projects = [
+  {
+    title: "Quartier",
+    url: paths.quartier,
+    description: "A liveability map of Paris, based on French open data",
+  },
+  {
+    title: "Builder Kit",
+    url: paths.builderkit,
+    description: "A batteries-included monorepo to start building onchain apps",
+  },
+  {
+    title: "Shape of Life",
+    url: paths.shapeoflife,
+    description: "Onchain exploration of Conway's Game of Life",
+  },
+];
