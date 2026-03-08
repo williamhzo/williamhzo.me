@@ -15,15 +15,15 @@ export default async function NotesPage() {
   const posts = await getBlogPosts();
 
   return (
-    <section className="mx-auto flex max-w-(--breakpoint-md) flex-col gap-6 px-6 pt-24 font-mono">
+    <section className="mx-auto flex max-w-(--breakpoint-md) flex-col gap-6 px-6 pt-24">
       <Link
         href="/"
-        className="text-muted-foreground hover:text-accent font-mono font-normal transition-colors duration-150"
+        className="text-muted-foreground hover:text-accent font-normal transition-colors duration-150"
       >
         home
       </Link>
 
-      <h1 className="text-accent font-sans font-semibold">notes</h1>
+      <h1 className="text-accent font-sans font-medium">notes</h1>
 
       <ul className="flex flex-col gap-6">
         {posts.map((post) => (
@@ -32,7 +32,7 @@ export default async function NotesPage() {
               href={paths.post(post.slug)}
               className="group flex flex-col items-start gap-0"
             >
-              <span className="group-hover:text-foreground text-accent font-semibold transition-colors duration-150">
+              <span className="group-hover:text-foreground text-accent font-medium transition-colors duration-150">
                 {post.title}
               </span>
               <span className="text-muted-foreground">
