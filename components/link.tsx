@@ -40,7 +40,7 @@ export const InlineLink = ({
     <Link
       href={href}
       className={cn(
-        "text-accent font-semibold underline hover:no-underline",
+        "text-accent font-medium underline hover:no-underline",
         className,
       )}
     >
