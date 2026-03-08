@@ -25,16 +25,16 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.19",
-    "@types/node": "^20",
-    "@types/react": "19.2.8",
-    "@types/react-dom": "19.2.3",
+    "@types/node": "^25.3.5",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "clsx": "^2.1.1",
-    "eslint": "^9",
-    "eslint-config-next": "^16.1.1",
-    "postcss": "^8.5.1",
+    "eslint": "9.39.4",
+    "eslint-config-next": "^16.1.6",
+    "postcss": "^8.5.8",
     "prettier-plugin-tailwindcss": "^0.7.2",
-    "tailwind-merge": "^3.4.0",
-    "tailwindcss": "^4.1.18",
-    "typescript": "^5"
+    "tailwind-merge": "^3.5.0",
+    "tailwindcss": "^4.2.1",
+    "typescript": "^5.9.3"
   }
 }
