@@ -34,7 +34,7 @@ export const Hero: FC = () => {
           opacity: { duration: 0.5 },
         }}
       >
-        product engineer & AI builder
+        Product engineer & AI builder
       </motion.h2>
 
       <motion.ul

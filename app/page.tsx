@@ -32,8 +32,8 @@ export default async function Home() {
           </h2>
 
           <p className="text-balance">
-            currently building <InlineLink href={paths.shape}>shape</InlineLink>{" "}
-            & <InlineLink href={paths.deca}>deca</InlineLink>, and{" "}
+            Currently building <InlineLink href={paths.shape}>Shape</InlineLink>{" "}
+            & <InlineLink href={paths.deca}>Deca</InlineLink>, and{" "}
             <strong>having a blast</strong>.
           </p>
 
