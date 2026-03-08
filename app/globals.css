@@ -38,7 +38,7 @@
 :root {
   & strong {
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--color-black);
   }
 }
