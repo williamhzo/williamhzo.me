@@ -10,9 +10,9 @@ import { motion } from "motion/react";
 
 export const Hero: FC = () => {
   return (
-    <div className="flex flex-col items-end">
+    <div className="flex flex-col items-start">
       <motion.h1
-        className="text-accent text-right font-sans text-4xl font-semibold tracking-tight select-none"
+        className="text-accent text-left font-sans font-semibold select-none"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
@@ -20,24 +20,25 @@ export const Hero: FC = () => {
           opacity: { duration: 0.5 },
         }}
       >
-        hey, <br />
-        i&apos;m{" "}
         <a href={paths.x} target="_blank" rel="noreferrer">
-          william
+          William Hzo
         </a>
       </motion.h1>
 
-      <motion.span
-        className="text-muted-foreground/75 items-end"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.2, delay: 0.15 }}
+      <motion.h2
+        className="text-muted-foreground font-medium"
+        initial={{ y: 10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          y: { duration: 0.3 },
+          opacity: { duration: 0.5 },
+        }}
       >
-        — @williamhzo
-      </motion.span>
+        product engineer & AI builder
+      </motion.h2>
 
       <motion.ul
-        className="flex items-center gap-1"
+        className="mt-1 -ml-2 flex items-center gap-1"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.2, delay: 0.15 }}
@@ -60,9 +61,9 @@ const SocialLink = ({
     <li className="grid place-items-center">
       <Link
         href={href}
-        className="hover:bg-muted-background rounded-xl p-2 transition-colors duration-150"
+        className="hover:text-foreground text-muted-foreground rounded-xl p-2 transition-colors duration-150"
       >
-        <Icon className="text-muted-foreground size-4" />
+        <Icon className="size-4" />
       </Link>
     </li>
   );
