@@ -17,7 +17,7 @@ export default async function Home() {
           <Hero />
 
           <SpinningText
-            className="-mt-4 font-mono text-sm uppercase opacity-0 transition-opacity duration-750 group-hover:opacity-100"
+            className="-mt-4 hidden font-mono text-sm uppercase opacity-0 transition-opacity duration-750 group-hover:opacity-100 md:block"
             radius={5.5}
             duration={15}
           >

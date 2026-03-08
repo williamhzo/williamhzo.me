@@ -9,7 +9,7 @@ import { FC } from "react";
 
 export const Footer: FC = () => {
   return (
-    <footer className="sticky bottom-0 z-0 flex h-20 items-end justify-start overflow-y-hidden bg-black pb-0.5 text-white">
+    <footer className="sticky bottom-0 z-0 hidden h-20 items-end justify-start overflow-y-hidden bg-black pb-0.5 text-white md:flex">
       <Marquee gap={96} duration={25} durationOnHover={0}>
         <XLink />
         <EmailLink />
