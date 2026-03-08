@@ -10,6 +10,9 @@ export const paths = {
   cv: "https://read.cv/wh",
   deca: "https://deca.art",
   shape: "https://shape.network",
+  quartier: "https://quartier.sh",
+  builderkit: "https://github.com/shape-network/builder-kit",
+  shapeoflife: "https://github.com/williamhzo/shape-of-life",
 };
 
 export const site = {
