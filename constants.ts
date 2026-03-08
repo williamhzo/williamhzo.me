@@ -11,3 +11,8 @@ export const paths = {
   deca: "https://deca.art",
   shape: "https://shape.network",
 };
+
+export const site = {
+  url: "https://www.williamhzo.com",
+  domain: "www.williamhzo.com",
+};
