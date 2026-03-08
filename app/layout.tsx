@@ -1,6 +1,7 @@
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Cormorant_Garamond } from "next/font/google";
+import { site } from "@/constants";
 import { Footer } from "@/components/footer";
 import "./globals.css";
 
@@ -21,9 +22,13 @@ const cormorantGaramond = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "williamhzo.me",
+  metadataBase: new URL(site.url),
+  title: "williamhzo.com",
   description:
     "Passionate & user-focused Product Engineer with a keen eye for design, crafting high impact products.",
+  alternates: {
+    canonical: "/",
+  },
   icons:
     "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐡</text></svg>",
 };

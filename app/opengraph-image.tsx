@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+import { site } from "@/constants";
 
 export const alt = "william — product engineer";
 export const size = {
@@ -33,10 +34,10 @@ export default async function Image() {
       >
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 32, color: "#697282", fontWeight: 600 }}>
-            williamhzo.me
+            {site.domain}
           </div>
           <div style={{ fontSize: 40 }}>
-            product engineer, builder & learner
+            product engineer, AI builder & learner
           </div>
         </div>
       </div>
