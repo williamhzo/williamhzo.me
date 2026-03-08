@@ -1,4 +1,5 @@
 import { getBlogPostMetadata } from "@/lib/blog";
+import { ChevronLeftIcon } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
 
@@ -24,12 +25,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default function MdxLayout({ children }: { children: React.ReactNode }) {
   return (
-    <section className="prose mx-auto flex flex-col items-start gap-6 p-5 pt-24 font-mono">
+    <section className="prose mx-auto flex flex-col items-start gap-6 p-5 pt-24">
       <Link
         href="/"
-        className="text-muted-foreground hover:text-accent font-mono font-normal no-underline transition-colors duration-150"
+        className="text-muted-foreground hover:text-accent flex items-center gap-1 font-normal no-underline transition-colors duration-150"
       >
-        home
+        <ChevronLeftIcon className="size-4" /> Home
       </Link>
       {children}
     </section>
