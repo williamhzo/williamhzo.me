@@ -39,7 +39,7 @@ export default async function Image() {
             williamhzo.me
           </div>
           <div style={{ fontSize: 40 }}>
-            product engineer, ai builder & learner
+            product engineer, AI builder & learner
           </div>
         </div>
       </div>
