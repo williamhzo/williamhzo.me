@@ -12,7 +12,7 @@ export const Hero: FC = () => {
   return (
     <div className="flex flex-col items-start">
       <motion.h1
-        className="text-accent text-left font-sans font-semibold select-none"
+        className="text-accent text-left font-semibold select-none"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
