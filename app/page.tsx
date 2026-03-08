@@ -33,12 +33,11 @@ export default async function Home() {
 
           <p className="text-balance">
             Currently building <InlineLink href={paths.shape}>Shape</InlineLink>{" "}
-            & <InlineLink href={paths.deca}>Deca</InlineLink>, and{" "}
-            <strong>having a blast</strong>.
+            and <strong>having a blast</strong>.
           </p>
 
           <p>
-            Always open to chat about the EVM, design, digital objects,
+            Always open to chat about AI, design, onchain digital objects,
             community, product, motorcycles, building & more.
           </p>
         </HomeSection>
