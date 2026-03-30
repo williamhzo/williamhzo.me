@@ -42,7 +42,7 @@ const EmailLink: FC = () => {
     <span className="flex items-center gap-2 font-serif text-7xl select-none">
       email:{" "}
       <button
-        onClick={() => copy("hi@williamhzo.me")}
+        onClick={() => copy("hi@williamhzo.com")}
         className="group grid cursor-pointer place-items-center"
       >
         <span
@@ -51,7 +51,7 @@ const EmailLink: FC = () => {
             copiedText ? "invisible" : "visible",
           )}
         >
-          hi@williamhzo.me
+          hi@williamhzo.com
         </span>
         <span
           className={cn(
