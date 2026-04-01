@@ -33,6 +33,10 @@ export default async function Home() {
 
           <p className="text-balance">
             Currently building <InlineLink href={paths.shape}>Shape</InlineLink>{" "}
+            &{" "}
+            <InlineLink href="https://athenaresearch.xyz">
+              Athena Research
+            </InlineLink>{" "}
             and <strong>having a blast</strong>.
           </p>
 
