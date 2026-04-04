@@ -23,9 +23,9 @@ const cormorantGaramond = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: "williamhzo.com",
+  title: "William - Product Engineer",
   description:
-    "Passionate & user-focused Product Engineer with a keen eye for design, crafting high impact products.",
+    "AI-native product engineer building impactful user experiences, fast. Product, design, and code.",
   alternates: {
     canonical: "/",
   },

@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { site } from "@/constants";
 
-export const alt = "william — product engineer";
+export const alt = "William - Product Engineer";
 export const size = {
   width: 1200,
   height: 630,
@@ -32,14 +32,14 @@ export default async function Image() {
           fontFamily: "Geist",
         }}
       >
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 32, color: "#697282", fontWeight: 600 }}>
-            {site.domain}
-          </div>
-          <div style={{ fontSize: 40 }}>
-            product engineer, AI builder & learner
+        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+          <div style={{ fontSize: 48 }}>William Hzo</div>
+          <div style={{ fontSize: 28, color: "#697282" }}>
+            AI-native product engineer, building impactful user experiences,
+            fast.
           </div>
         </div>
+        <div style={{ fontSize: 20, color: "#9ca3af" }}>{site.domain}</div>
       </div>
     ),
     {

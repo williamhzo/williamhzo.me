@@ -2,7 +2,7 @@ import { InlineLink } from "@/components/link";
 import { paths } from "@/constants";
 import { Hero } from "@/components/hero";
 import { SpinningText } from "@/components/spinning-text";
-import Link from "next/link";
+import { Link } from "@/components/link";
 import { getBlogPosts } from "@/lib/blog";
 import { cn } from "@/lib/utils";
 import { type ReactNode } from "react";
@@ -11,8 +11,8 @@ export default async function Home() {
   const posts = await getBlogPosts();
 
   return (
-    <div className="mx-auto flex max-w-(--breakpoint-md) flex-col gap-12 px-6 pt-24">
-      <div className="mx-auto flex w-full max-w-(--breakpoint-xl) flex-col gap-4">
+    <div className="mx-auto flex max-w-(--breakpoint-md) flex-col gap-20 px-6 pt-32 pb-12">
+      <div className="mx-auto flex w-full max-w-(--breakpoint-xl) flex-col gap-6">
         <div className="group -mt-8 flex items-center justify-start gap-32">
           <Hero />
 
@@ -21,33 +21,34 @@ export default async function Home() {
             radius={5.5}
             duration={15}
           >
-            {`web3 • engineering • design • craft • `}
+            {`ai • product • design • craft • `}
           </SpinningText>
         </div>
 
-        <HomeSection title="Today" className="mt-12 max-w-prose">
-          <h2 className="text-balance">
-            Paris-based <strong>product engineer</strong> with a keen eye for
-            design, crafting high impact <strong>user-focused products</strong>.
-          </h2>
-
-          <p className="text-balance">
+        <Section title="Today" className="mt-16 max-w-prose">
+          <p className="text-lg leading-relaxed text-balance">
             Currently building <InlineLink href={paths.shape}>Shape</InlineLink>{" "}
-            &{" "}
-            <InlineLink href="https://athenaresearch.xyz">
-              Athena Research
-            </InlineLink>{" "}
-            and <strong>having a blast</strong>.
+            & <InlineLink href={paths.athena}>Athena Research</InlineLink>,
+            wearing many hats.
           </p>
 
-          <p>
-            Always open to chat about AI, design, onchain digital objects,
-            community, product, motorcycles, building & more.
+          <p className="text-lg leading-relaxed text-balance">
+            Paris based, always open to chat about AI tools & workflows, design,
+            craft, building communities, product, motorcycles, shipping fast &
+            more.
           </p>
-        </HomeSection>
+        </Section>
       </div>
 
-      <HomeSection title="Writing">
+      {/* <Section title="Selected Work">
+        <div className="flex flex-col gap-16">
+          {selectedWork.map((work) => (
+            <WorkItem key={work.title} {...work} />
+          ))}
+        </div>
+      </Section> */}
+
+      <Section title="Writing">
         <ul className="flex flex-col gap-6">
           {posts.map((post) => (
             <ListItem
@@ -58,58 +59,63 @@ export default async function Home() {
             />
           ))}
         </ul>
-      </HomeSection>
+      </Section>
 
-      <HomeSection title="Projects">
-        <ul className="flex flex-col gap-6">
-          {projects.map((project) => (
-            <ListItem
-              key={project.title}
-              url={project.url}
-              title={project.title}
-              description={project.description}
-            />
-          ))}
+      <Section title="Get in touch">
+        <ul className="marker:text-muted-foreground flex list-['–\20'] flex-col gap-2 pl-4">
+          <li>
+            <Link
+              href="mailto:hi@williamhzo.com"
+              className="text-foreground hover:text-link font-medium transition-colors duration-150"
+            >
+              Email
+            </Link>
+          </li>
+          <li>
+            <Link
+              href={paths.x}
+              className="text-foreground hover:text-link font-medium transition-colors duration-150"
+            >
+              Twitter/X
+            </Link>
+          </li>
+          <li>
+            <Link
+              href={paths.linkedin}
+              className="text-foreground hover:text-link font-medium transition-colors duration-150"
+            >
+              LinkedIn
+            </Link>
+          </li>
+          <li>
+            <Link
+              href={paths.cal}
+              className="text-link hover:text-link/80 font-medium transition-colors duration-150"
+            >
+              Schedule a chat
+            </Link>
+          </li>
         </ul>
-      </HomeSection>
-
-      <HomeSection title="More" contentClassName="max-w-prose">
-        <p className="text-pretty">
-          You can reach me on <InlineLink href={paths.x}>Twitter/X</InlineLink>{" "}
-          and see more of my work on{" "}
-          <InlineLink href={paths.github}>GitHub</InlineLink>.
-        </p>
-
-        <p>
-          <InlineLink
-            href={paths.repo}
-            className="text-muted-foreground font-normal"
-          >
-            Source code
-          </InlineLink>
-        </p>
-      </HomeSection>
+      </Section>
     </div>
   );
 }
 
-function HomeSection({
+function Section({
   title,
   children,
   className,
-  contentClassName,
 }: {
   title: string;
   children: ReactNode;
   className?: string;
-  contentClassName?: string;
 }) {
   return (
-    <section className={cn("flex flex-col gap-4", className)}>
-      <h3 className="text-accent font-sans font-medium">{title}</h3>
-      <div className={cn("flex flex-col gap-6", contentClassName)}>
-        {children}
-      </div>
+    <section className={cn("flex flex-col gap-5", className)}>
+      <h3 className="text-muted-foreground font-mono text-sm tracking-wide uppercase">
+        {title}
+      </h3>
+      <div className="flex flex-col gap-4">{children}</div>
     </section>
   );
 }
@@ -124,40 +130,84 @@ const ListItem = ({
   description: string;
 }) => {
   const isExternal = url.startsWith("https");
-  const Component = isExternal ? "a" : Link;
+
   return (
     <li>
-      <Component
-        href={url}
-        target={isExternal ? "_blank" : undefined}
-        rel={isExternal ? "noreferrer" : undefined}
-        className="group flex flex-col items-start gap-0"
-      >
-        <span className="group-hover:text-accent text-foreground font-medium transition-colors duration-150">
+      <Link href={url} className="group flex flex-col items-start gap-0">
+        <span className="group-hover:text-link text-foreground font-medium transition-colors duration-150">
           {title}
         </span>
         <span className="text-muted-foreground transition-colors duration-150">
           {description}
         </span>
-      </Component>
+      </Link>
     </li>
   );
 };
 
-const projects = [
+type WorkItemProps = {
+  title: string;
+  description: ReactNode;
+  url?: string;
+  image: string;
+};
+
+function WorkItem({ title, description, url, image }: WorkItemProps) {
+  const content = (
+    <div className="group flex flex-col gap-4">
+      <div className="bg-muted-background aspect-video w-full overflow-hidden rounded-lg">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={image}
+          alt={title}
+          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+        />
+      </div>
+      <div className="flex flex-col gap-1">
+        <h4 className="group-hover:text-link text-accent font-medium transition-colors duration-150">
+          {title}
+        </h4>
+        <p className="text-muted-foreground">{description}</p>
+      </div>
+    </div>
+  );
+
+  if (url) {
+    return (
+      <Link href={url} className="block">
+        {content}
+      </Link>
+    );
+  }
+
+  return content;
+}
+
+const selectedWork: WorkItemProps[] = [
+  {
+    title: "Maximals",
+    description: (
+      <>
+        Designed and built the product experience and onchain interactions for
+        this art collection by{" "}
+        <InlineLink href="https://x.com/macbethAI">MACBETH</InlineLink>.
+      </>
+    ),
+    url: "https://maximals.shape.network/",
+    image: "/maximals.jpg",
+  },
+  {
+    title: "Project Beta",
+    description:
+      "Built an AI-powered internal platform serving thousands of daily active users.",
+    url: "https://example.com",
+    image: "/placeholder-work.svg",
+  },
   {
     title: "Quartier",
+    description:
+      "Built a liveability map of Paris based on French open data, helping people find their ideal neighborhood.",
     url: paths.quartier,
-    description: "A liveability map of Paris, based on French open data",
-  },
-  {
-    title: "Builder Kit",
-    url: paths.builderkit,
-    description: "A batteries-included monorepo to start building onchain apps",
-  },
-  {
-    title: "Shape of Life",
-    url: paths.shapeoflife,
-    description: "Onchain exploration of Conway's Game of Life",
+    image: "/placeholder-work.svg",
   },
 ];

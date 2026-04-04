@@ -2,17 +2,12 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  /* FIXME */
-  /* --font-*: initial;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-serif: var(--font-cormorant-garamond); */
-
   --color-background: var(--color-white);
   --color-foreground: var(--color-gray-600);
   --color-accent: var(--color-black);
   --color-muted-foreground: var(--color-gray-400);
   --color-muted-background: var(--color-gray-100);
+  --color-link: color(display-p3 0.26 0.21 1);
 }
 
 @layer base {

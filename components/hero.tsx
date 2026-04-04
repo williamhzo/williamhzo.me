@@ -1,8 +1,7 @@
 "use client";
 
 import { ElementType } from "react";
-import { XIcon } from "@/components/icons";
-import { GithubIcon } from "@/components/icons";
+import { XIcon, GithubIcon } from "@/components/icons";
 import { FC } from "react";
 import { paths } from "@/constants";
 import { Link } from "@/components/link";
@@ -10,9 +9,9 @@ import { motion } from "motion/react";
 
 export const Hero: FC = () => {
   return (
-    <div className="flex flex-col items-start">
+    <div className="flex flex-col items-start gap-1">
       <motion.h1
-        className="text-accent text-left font-semibold select-none"
+        className="text-left text-3xl font-semibold select-none"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
@@ -20,13 +19,30 @@ export const Hero: FC = () => {
           opacity: { duration: 0.5 },
         }}
       >
-        <a href={paths.x} target="_blank" rel="noreferrer">
-          William Hzo
+        <a
+          href={paths.x}
+          target="_blank"
+          rel="noreferrer"
+          className="group/name"
+        >
+          <span className="text-accent group-hover/name:text-link transition-colors duration-150">
+            william
+          </span>
+          {/* <span className="text-accent group-hover/name:text-link transition-colors duration-150">
+            {" "}
+            h
+          </span>
+          <span className="text-muted-foreground group-hover/name:text-link transition-colors duration-150">
+            ermo
+          </span>
+          <span className="text-accent group-hover/name:text-link transition-colors duration-150">
+            zo
+          </span> */}
         </a>
       </motion.h1>
 
-      <motion.h2
-        className="text-muted-foreground font-medium"
+      <motion.p
+        className="text-foreground max-w-lg text-lg text-balance"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
@@ -34,17 +50,35 @@ export const Hero: FC = () => {
           opacity: { duration: 0.5 },
         }}
       >
-        Product engineer & AI builder
-      </motion.h2>
+        AI-native product engineer with a keen eye for design, building high
+        value user experiences, <span className="text-link italic">fast</span>.
+      </motion.p>
+
+      <motion.p
+        className="text-muted-foreground text-lg text-balance"
+        initial={{ y: 10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          y: { duration: 0.3, delay: 0.05 },
+          opacity: { duration: 0.5, delay: 0.05 },
+        }}
+      >
+        I design and build across the full product stack from idea to end user's
+        device, <span className="text-link italic">end-to-end</span>.
+      </motion.p>
 
       <motion.ul
-        className="mt-1 -ml-2 flex items-center gap-1"
+        className="mt-2 -ml-2 flex items-center gap-1"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.2, delay: 0.15 }}
       >
         <SocialLink href={paths.x} icon={XIcon} />
-        <SocialLink href={paths.github} icon={GithubIcon} />
+        <SocialLink
+          href={paths.github}
+          icon={GithubIcon}
+          iconClassName="size-[18px]"
+        />
       </motion.ul>
     </div>
   );
@@ -53,17 +87,19 @@ export const Hero: FC = () => {
 const SocialLink = ({
   href,
   icon: Icon,
+  iconClassName,
 }: {
   href: string;
   icon: ElementType;
+  iconClassName?: string;
 }) => {
   return (
     <li className="grid place-items-center">
       <Link
         href={href}
-        className="hover:text-foreground text-muted-foreground rounded-xl p-2 transition-colors duration-150"
+        className="text-muted-foreground hover:text-link rounded-xl p-2 transition-colors duration-150"
       >
-        <Icon className="size-4" />
+        <Icon className={iconClassName ?? "size-4"} />
       </Link>
     </li>
   );
