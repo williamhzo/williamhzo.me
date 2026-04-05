@@ -11,7 +11,7 @@ export const Hero: FC = () => {
   return (
     <div className="flex flex-col items-start gap-1">
       <motion.h1
-        className="text-left text-3xl font-semibold select-none"
+        className="text-left text-3xl font-semibold select-none md:text-4xl"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
@@ -42,7 +42,7 @@ export const Hero: FC = () => {
       </motion.h1>
 
       <motion.p
-        className="text-foreground max-w-lg text-lg text-balance"
+        className="text-foreground max-w-lg text-base text-balance md:text-lg"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
@@ -55,7 +55,7 @@ export const Hero: FC = () => {
       </motion.p>
 
       <motion.p
-        className="text-muted-foreground text-lg text-balance"
+        className="text-muted-foreground text-base text-balance md:text-lg"
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{

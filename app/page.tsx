@@ -11,7 +11,7 @@ export default async function Home() {
   const posts = await getBlogPosts();
 
   return (
-    <div className="mx-auto flex max-w-(--breakpoint-md) flex-col gap-20 px-6 pt-32 pb-12">
+    <div className="mx-auto flex max-w-(--breakpoint-md) flex-col gap-14 px-6 pt-20 pb-12 md:gap-20 md:pt-32">
       <div className="mx-auto flex w-full max-w-(--breakpoint-xl) flex-col gap-6">
         <div className="group -mt-8 flex items-center justify-start gap-32">
           <Hero />
@@ -25,14 +25,14 @@ export default async function Home() {
           </SpinningText>
         </div>
 
-        <Section title="Today" className="mt-16 max-w-prose">
-          <p className="text-lg leading-relaxed text-balance">
+        <Section title="Today" className="mt-10 max-w-prose md:mt-16">
+          <p className="text-base leading-relaxed text-balance md:text-lg">
             Currently building <InlineLink href={paths.shape}>Shape</InlineLink>{" "}
             & <InlineLink href={paths.athena}>Athena Research</InlineLink>,
             wearing many hats.
           </p>
 
-          <p className="text-lg leading-relaxed text-balance">
+          <p className="text-base leading-relaxed text-balance md:text-lg">
             Paris based, always open to chat about AI tools & workflows, design,
             craft, building communities, product, motorcycles, shipping fast &
             more.
@@ -129,8 +129,6 @@ const ListItem = ({
   url: string;
   description: string;
 }) => {
-  const isExternal = url.startsWith("https");
-
   return (
     <li>
       <Link href={url} className="group flex flex-col items-start gap-0">
